@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace academytec_Net
+namespace academute_Net
 {
     public class BundleConfig
     {

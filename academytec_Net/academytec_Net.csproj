@@ -120,10 +120,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Almacen.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Autor.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Detalle_Factura.cs" />
+    <Compile Include="Models\Detalle_Lista.cs" />
+    <Compile Include="Models\Documento.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Factura.cs" />
+    <Compile Include="Models\Impresion.cs" />
+    <Compile Include="Models\Libro.cs" />
+    <Compile Include="Models\Lista.cs" />
+    <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Programa.cs" />
+    <Compile Include="Models\Recibo.cs" />
+    <Compile Include="Models\Transporte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,7 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Cliente\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
