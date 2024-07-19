@@ -122,26 +122,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NegociosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Almacen.cs" />
-    <Compile Include="Models\Area.cs" />
-    <Compile Include="Models\Autor.cs" />
-    <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Detalle_Factura.cs" />
-    <Compile Include="Models\Detalle_Lista.cs" />
-    <Compile Include="Models\Documento.cs" />
-    <Compile Include="Models\Empleado.cs" />
-    <Compile Include="Models\Empresa.cs" />
-    <Compile Include="Models\Factura.cs" />
-    <Compile Include="Models\Impresion.cs" />
-    <Compile Include="Models\Libro.cs" />
-    <Compile Include="Models\Lista.cs" />
-    <Compile Include="Models\Material.cs" />
-    <Compile Include="Models\Programa.cs" />
-    <Compile Include="Models\Recibo.cs" />
-    <Compile Include="Models\Transporte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\Cliente\" />
+    <Folder Include="Views\Negocios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -226,6 +212,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Entity\Domain.Entity.csproj">
+      <Project>{c99204d8-c4df-442f-9505-485372114eb4}</Project>
+      <Name>Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructure.SQL.Negocios\Infraestructure.SQL.Negocios.csproj">
+      <Project>{798f260b-dd46-4a92-b279-f4ab134b4a35}</Project>
+      <Name>Infraestructure.SQL.Negocios</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
