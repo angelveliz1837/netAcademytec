@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entity
 {
     public class Transporte
     {
-        [Display (Name ="Id Transporte")] public int idtransporte {  get; set; }
-        [Display(Name = "Direccion Partida")] public string direccionpartida { get; set; }
-        [Display(Name = "Direccion Llegada")] public string direccionllegada{ get; set; }
-        [Display(Name = "Id Empleado")] public int idempleado { get; set; }
-        [Display(Name = "Id Almacen")] public int idalmacen { get; set; }
+        public int idtransporte {  get; set; }
+        public string direccionpartida { get; set; }
+        public string direccionllegada{ get; set; }
+        public int idempleado { get; set; }
+        public int idalmacen { get; set; }
     }
 }
