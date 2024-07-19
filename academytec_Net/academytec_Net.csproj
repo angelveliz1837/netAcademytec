@@ -120,7 +120,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NegociosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,12 +178,28 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Negocios\ListadoAlmacen.cshtml" />
+    <Content Include="Views\Negocios\ListadoArea.cshtml" />
+    <Content Include="Views\Negocios\ListadoAutor.cshtml" />
+    <Content Include="Views\Negocios\ListadoCliente.cshtml" />
+    <Content Include="Views\Negocios\ListadoDetalle_Factura.cshtml" />
+    <Content Include="Views\Negocios\ListadoDetalle_Lista.cshtml" />
+    <Content Include="Views\Negocios\ListadoDocumento.cshtml" />
+    <Content Include="Views\Negocios\ListadoEmpleado.cshtml" />
+    <Content Include="Views\Negocios\ListadoEmpresa.cshtml" />
+    <Content Include="Views\Negocios\ListadoFactura.cshtml" />
+    <Content Include="Views\Negocios\ListadoImpresion.cshtml" />
+    <Content Include="Views\Negocios\ListadoLibro.cshtml" />
+    <Content Include="Views\Negocios\ListadoLista.cshtml" />
+    <Content Include="Views\Negocios\ListadoMaterial.cshtml" />
+    <Content Include="Views\Negocios\ListadoPrograma.cshtml" />
+    <Content Include="Views\Negocios\ListadoRecibo.cshtml" />
+    <Content Include="Views\Negocios\ListadoTransporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Cliente\" />
-    <Folder Include="Views\Negocios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
