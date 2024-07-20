@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Domain.Entity.Transporte>
+
+@{
+    ViewBag.Title = "ListadoTransporte";
+}
+
+<h2>ListadoTransporte</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idtransporte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccionpartida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccionllegada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idempleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idalmacen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idtransporte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccionpartida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccionllegada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idempleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idalmacen)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
