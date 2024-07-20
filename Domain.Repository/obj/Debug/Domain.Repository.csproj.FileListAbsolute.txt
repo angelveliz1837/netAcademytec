@@ -1,0 +1,11 @@
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Repository.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Repository.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Domain.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Entity.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Domain.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\bin\Debug\Domain.Entity.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\obj\Debug\Domain.Repository.csproj.AssemblyReference.cache
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\obj\Debug\Domain.Repository.csproj.CoreCompileInputs.cache
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\obj\Debug\Domain.R.6FC40CD5.Up2Date
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\obj\Debug\Domain.Repository.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Repository\obj\Debug\Domain.Repository.pdb

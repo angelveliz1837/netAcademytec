@@ -1,0 +1,6 @@
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\bin\Debug\Domain.Domain.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\bin\Debug\Domain.Domain.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\obj\Debug\Domain.Domain.csproj.AssemblyReference.cache
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\obj\Debug\Domain.Domain.csproj.CoreCompileInputs.cache
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\obj\Debug\Domain.Domain.dll
+D:\ACADEMYTEC_NET\netAcademytec\Domain.Domain\obj\Debug\Domain.Domain.pdb

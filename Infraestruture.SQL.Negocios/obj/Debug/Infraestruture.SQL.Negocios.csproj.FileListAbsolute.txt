@@ -1,0 +1,13 @@
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Infraestruture.SQL.Negocios.dll
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Infraestruture.SQL.Negocios.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Domain.dll
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Entity.dll
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Repository.dll
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Domain.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Entity.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\bin\Debug\Domain.Repository.pdb
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\obj\Debug\Infraestruture.SQL.Negocios.csproj.AssemblyReference.cache
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\obj\Debug\Infraestruture.SQL.Negocios.csproj.CoreCompileInputs.cache
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\obj\Debug\Infraest.9D2D13C8.Up2Date
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\obj\Debug\Infraestruture.SQL.Negocios.dll
+D:\ACADEMYTEC_NET\netAcademytec\Infraestruture.SQL.Negocios\obj\Debug\Infraestruture.SQL.Negocios.pdb
