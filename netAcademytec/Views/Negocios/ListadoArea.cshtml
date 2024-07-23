@@ -7,7 +7,7 @@
 <h2>ListadoArea</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateArea")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.nombrearea)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditArea", new { id = item.idarea }) |
+            @Html.ActionLink("Details", "DetailsArea", new { id = item.idarea }) |
+            @Html.ActionLink("Delete", "DeleteArea", new { id = item.idarea })
         </td>
     </tr>
 }

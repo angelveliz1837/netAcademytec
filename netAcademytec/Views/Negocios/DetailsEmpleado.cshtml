@@ -1,0 +1,98 @@
+﻿@model Domain.Entity.Empleado
+
+@{
+    ViewBag.Title = "DetailsEmpleado";
+}
+
+<h2>DetailsEmpleado</h2>
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idempleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idempleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iddocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iddocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerodocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerodocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreempleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreempleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidopaternoempleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidopaternoempleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidomaternoempleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidomaternoempleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idempleado }) |
+    @Html.ActionLink("Retornar", "ListadoEmpleado")
+</p>

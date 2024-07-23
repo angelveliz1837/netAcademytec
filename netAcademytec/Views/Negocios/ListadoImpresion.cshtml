@@ -7,7 +7,7 @@
 <h2>ListadoImpresion</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateImpresion")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditImpresion", new { id = item.idimpresion }) |
+            @Html.ActionLink("Details", "DetailsImpresion", new { id = item.idimpresion }) |
+            @Html.ActionLink("Delete", "DeleteImpresion", new { id = item.idimpresion })
         </td>
     </tr>
 }

@@ -7,7 +7,7 @@
 <h2>ListadoCliente</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateCliente")
 </p>
 <table class="table">
     <tr>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.foto)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditCliente", new { id = item.idcliente }) |
+            @Html.ActionLink("Details", "DetailsCliente", new { id = item.idcliente }) |
+            @Html.ActionLink("Delete", "DeleteCliente", new { id = item.idcliente })
         </td>
     </tr>
 }

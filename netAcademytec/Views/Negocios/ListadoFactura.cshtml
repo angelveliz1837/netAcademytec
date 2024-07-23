@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Entity.Lista>
+﻿@model IEnumerable<Domain.Entity.Factura>
 
 @{
     ViewBag.Title = "ListadoFactura";
@@ -7,18 +7,21 @@
 <h2>ListadoFactura</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateFactura")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idlista)
+            @Html.DisplayNameFor(model => model.idfactura)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechalista)
+            @Html.DisplayNameFor(model => model.fecha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.idempresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idcliente)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.idempleado)
@@ -29,21 +32,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idlista)
+            @Html.DisplayFor(modelItem => item.idfactura)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fechalista)
+            @Html.DisplayFor(modelItem => item.fecha)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.idempresa)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.idcliente)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.idempleado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditFactura", new { id = item.idfactura }) |
+            @Html.ActionLink("Details", "DetailsFactura", new { id = item.idfactura }) |
+            @Html.ActionLink("Delete", "DeleteFactura", new { id = item.idfactura })
         </td>
     </tr>
 }

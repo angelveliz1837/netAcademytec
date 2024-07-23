@@ -1,0 +1,58 @@
+﻿@model Domain.Entity.Detalle_Lista
+
+@{
+    ViewBag.Title = "DetailsDetalle_Lista";
+}
+
+<h2>DetailsDetalle_Lista</h2>
+
+<div>
+    <h4>Detalle_Lista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.iddetallelista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iddetallelista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idlista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idlista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idmaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idmaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preciocosto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preciocosto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.iddetallelista }) |
+    @Html.ActionLink("Retornar", "ListadoDetalle_Lista")
+</p>

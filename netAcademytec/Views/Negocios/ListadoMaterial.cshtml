@@ -7,7 +7,7 @@
 <h2>ListadoMaterial</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateMaterial")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.numerorecibo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditMaterial", new { id = item.idmaterial }) |
+            @Html.ActionLink("Details", "DetailsMaterial", new { id = item.idmaterial }) |
+            @Html.ActionLink("Delete", "DeleteMaterial", new { id = item.idmaterial })
         </td>
     </tr>
 }

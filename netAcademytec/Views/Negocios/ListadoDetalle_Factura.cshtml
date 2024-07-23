@@ -7,7 +7,7 @@
 <h2>ListadoDetalle_Factura</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateDetalle_Factura")
 </p>
 <table class="table">
     <tr>
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.precioventa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditDetalle_Factura", new { id = item.iddetallefactura }) |
+            @Html.ActionLink("Details", "DetailsDetalle_Factura", new { id = item.iddetallefactura }) |
+            @Html.ActionLink("Delete", "DeleteDetalle_Factura", new { id = item.iddetallefactura })
         </td>
     </tr>
 }

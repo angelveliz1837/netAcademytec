@@ -7,7 +7,7 @@
 <h2>ListadoLibro</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateLibro")
 </p>
 <table class="table">
     <tr>
@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.idempleado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditLibro", new { id = item.idlibro }) |
+            @Html.ActionLink("Details", "DetailsLibro", new { id = item.idlibro }) |
+            @Html.ActionLink("Delete", "DeleteLibro", new { id = item.idlibro })
         </td>
     </tr>
 }

@@ -10,7 +10,7 @@ namespace Domain.Domain
     {
         string insert(T reg); //T es la estructura de datos
         string update(T reg);
-        string delete(T reg);
-        T search(T reg);
+        string delete(int id);
+        T search(int id);
     }
 }

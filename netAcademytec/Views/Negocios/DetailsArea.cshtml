@@ -1,0 +1,34 @@
+﻿@model Domain.Entity.Area
+
+@{
+    ViewBag.Title = "DetailsArea";
+}
+
+<h2>DetailsArea</h2>
+
+<div>
+    <h4>Area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrearea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrearea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idarea }) |
+    @Html.ActionLink("Retornar", "ListadoArea")
+</p>

@@ -7,7 +7,7 @@
 <h2>ListadoTransporte</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateTransporte")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.idalmacen)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditTransporte", new { id = item.idtransporte }) |
+            @Html.ActionLink("Details", "DetailsTransporte", new { id = item.idtransporte }) |
+            @Html.ActionLink("Delete", "DeleteTransporte", new { id = item.idtransporte })
         </td>
     </tr>
 }

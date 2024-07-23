@@ -1,0 +1,98 @@
+﻿@model Domain.Entity.Libro
+
+@{
+    ViewBag.Title = "DetailsLibro";
+}
+
+<h2>DetailsLibro</h2>
+
+<div>
+    <h4>Libro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idlibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idlibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrelibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrelibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionlibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionlibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preciolibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preciolibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paginas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idimpresion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idimpresion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idautor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idautor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idempleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idempleado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idlibro }) |
+    @Html.ActionLink("Retornar", "ListadoLibro")
+</p>

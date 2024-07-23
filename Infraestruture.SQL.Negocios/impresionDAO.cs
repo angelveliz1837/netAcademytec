@@ -2,6 +2,7 @@
 using Domain.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,27 @@ namespace Infraestruture.SQL.Negocios
 {
     public class impresionDAO : IImpresion
     {
-        public string delete(Impresion reg)
+        public string delete(int id)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_elimina_impresion", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idimpresion", id);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha eliminado {i} registros";
+                }
+                catch (Exception ex) { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
         public IEnumerable<Impresion> get(string nombrecliente)
@@ -44,17 +63,60 @@ namespace Infraestruture.SQL.Negocios
 
         public string insert(Impresion reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_inserta_impresion", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idimpresion", reg.idimpresion);
+                    cmd.Parameters.AddWithValue("@descripcion", reg.descripcion);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha insertado {i} registros";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
-        public Impresion search(Impresion reg)
+        public Impresion search(int id)
         {
-            throw new NotImplementedException();
+            //retorna el registro de impresion filtrado por su idimpresion
+            return getAll().Where(m => m.idimpresion == id).FirstOrDefault();
         }
 
         public string update(Impresion reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de inserccion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_actualiza_impresion", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idimpresion", reg.idimpresion);
+                    cmd.Parameters.AddWithValue("@descripcion", reg.descripcion);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha actualizado {i} registros";
+                }
+                catch (Exception ex)
+                { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
     }
 }

@@ -7,7 +7,7 @@
 <h2>ListadoDocumento</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateDocumento")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.nombredocumento)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditDocumento", new { id = item.iddocumento }) |
+            @Html.ActionLink("Details", "DetailsDocumento", new { id = item.iddocumento }) |
+            @Html.ActionLink("Delete", "DeleteDocumento", new { id = item.iddocumento })
         </td>
     </tr>
 }

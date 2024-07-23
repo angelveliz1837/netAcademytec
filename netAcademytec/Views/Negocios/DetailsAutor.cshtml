@@ -1,0 +1,90 @@
+﻿@model Domain.Entity.Autor
+
+@{
+    ViewBag.Title = "DetailsAutor";
+}
+
+<h2>DetailsAutor</h2>
+
+<div>
+    <h4>Autor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idautor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idautor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.iddocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iddocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerodocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerodocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreautor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreautor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidopaternoautor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidopaternoautor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidomaternoautor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidomaternoautor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idautor }) |
+    @Html.ActionLink("Retornar", "ListadoAutor")
+</p>

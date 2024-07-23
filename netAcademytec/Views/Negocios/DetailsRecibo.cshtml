@@ -1,0 +1,34 @@
+﻿@model Domain.Entity.Recibo
+
+@{
+    ViewBag.Title = "DetailsRecibo";
+}
+
+<h2>DetailsRecibo</h2>
+
+<div>
+    <h4>Recibo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idrecibo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idrecibo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrerecibo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrerecibo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idrecibo }) |
+    @Html.ActionLink("Retornar", "ListadoRecibo")
+</p>

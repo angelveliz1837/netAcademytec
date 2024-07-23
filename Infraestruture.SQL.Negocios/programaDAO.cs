@@ -2,6 +2,7 @@
 using Domain.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,27 @@ namespace Infraestruture.SQL.Negocios
 {
     public class programaDAO : IPrograma
     {
-        public string delete(Programa reg)
+        public string delete(int id)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_elimina_programa", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idprograma", id);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha eliminado {i} registros";
+                }
+                catch (Exception ex) { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
         public IEnumerable<Programa> get(string nombrecliente)
@@ -46,17 +65,64 @@ namespace Infraestruture.SQL.Negocios
 
         public string insert(Programa reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_inserta_programa", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idprograma", reg.idprograma);
+                    cmd.Parameters.AddWithValue("@titulo", reg.titulo);
+                    cmd.Parameters.AddWithValue("@descripcion", reg.descripcion);
+                    cmd.Parameters.AddWithValue("@idlibro", reg.idlibro);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha insertado {i} registros";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
-        public Programa search(Programa reg)
+        public Programa search(int id)
         {
-            throw new NotImplementedException();
+            //retorna el registro de programa filtrado por su idprograma
+            return getAll().Where(m => m.idprograma == id).FirstOrDefault();
         }
 
         public string update(Programa reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de inserccion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_actualiza_programa", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idprograma", reg.idprograma);
+                    cmd.Parameters.AddWithValue("@titulo", reg.titulo);
+                    cmd.Parameters.AddWithValue("@descripcion", reg.descripcion);
+                    cmd.Parameters.AddWithValue("@idlibro", reg.idlibro);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha actualizado {i} registros";
+                }
+                catch (Exception ex)
+                { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
     }
 }

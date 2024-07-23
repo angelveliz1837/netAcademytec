@@ -7,7 +7,7 @@
 <h2>ListadoRecibo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateRecibo")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.nombrerecibo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "EditRecibo", new { id = item.idrecibo }) |
+            @Html.ActionLink("Details", "DetailsRecibo", new { id = item.idrecibo }) |
+            @Html.ActionLink("Delete", "DeleteRecibo", new { id = item.idrecibo })
         </td>
     </tr>
 }

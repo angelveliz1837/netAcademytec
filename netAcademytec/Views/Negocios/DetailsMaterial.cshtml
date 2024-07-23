@@ -1,0 +1,58 @@
+﻿@model Domain.Entity.Material
+
+@{
+    ViewBag.Title = "DetailsMaterial";
+}
+
+<h2>DetailsMaterial</h2>
+
+<div>
+    <h4>Material</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idmaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idmaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrematerial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrematerial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preciomaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preciomaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idrecibo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idrecibo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerorecibo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerorecibo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idmaterial }) |
+    @Html.ActionLink("Retornar", "ListadoMaterial")
+</p>

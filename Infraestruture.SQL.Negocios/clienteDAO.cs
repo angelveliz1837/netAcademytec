@@ -2,6 +2,7 @@
 using Domain.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,27 @@ namespace Infraestruture.SQL.Negocios
 {
     public class clienteDAO : ICliente
     {
-        public string delete(Cliente reg)
+        public string delete(int id)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_elimina_cliente", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idcliente", id);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha eliminado {i} registros";
+                }
+                catch (Exception ex) { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
         public IEnumerable<Cliente> get(string nombrecliente)
@@ -51,17 +70,74 @@ namespace Infraestruture.SQL.Negocios
 
         public string insert(Cliente reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de insercion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_inserta_cliente", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idcliente", reg.idcliente);
+                    cmd.Parameters.AddWithValue("@iddocumento", reg.iddocumento);
+                    cmd.Parameters.AddWithValue("@numerodocumento", reg.numerodocumento);
+                    cmd.Parameters.AddWithValue("@nombrecliente", reg.nombrecliente);
+                    cmd.Parameters.AddWithValue("@apellidopaternocliente", reg.apellidopaternocliente);
+                    cmd.Parameters.AddWithValue("@apellidomaternocliente", reg.apellidomaternocliente);
+                    cmd.Parameters.AddWithValue("@correo", reg.correo);
+                    cmd.Parameters.AddWithValue("@telefono", reg.telefono);
+                    cmd.Parameters.AddWithValue("@foto", reg.foto);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha insertado {i} registros";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
 
-        public Cliente search(Cliente reg)
+        public Cliente search(int id)
         {
-            throw new NotImplementedException();
+            //retorna el registro de cliente filtrado por su idcliente
+            return getAll().Where(m => m.idcliente == id).FirstOrDefault();
         }
 
         public string update(Cliente reg)
         {
-            throw new NotImplementedException();
+            string mensaje = "";
+            //este proceso ejecuta el procedure de inserccion
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                //controlamos con try catch, donde mensaje recibe el resultado
+                try
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("usp_actualiza_cliente", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idcliente", reg.idcliente);
+                    cmd.Parameters.AddWithValue("@iddocumento", reg.iddocumento);
+                    cmd.Parameters.AddWithValue("@numerodocumento", reg.numerodocumento);
+                    cmd.Parameters.AddWithValue("@nombrecliente", reg.nombrecliente);
+                    cmd.Parameters.AddWithValue("@apellidopaternocliente", reg.apellidopaternocliente);
+                    cmd.Parameters.AddWithValue("@apellidomaternocliente", reg.apellidomaternocliente);
+                    cmd.Parameters.AddWithValue("@correo", reg.correo);
+                    cmd.Parameters.AddWithValue("@telefono", reg.telefono);
+                    cmd.Parameters.AddWithValue("@foto", reg.foto);
+                    //ejecutar executeNonQuery(sentencia/procedure), donde retorna la cantidad de reg afectados
+                    int i = cmd.ExecuteNonQuery();
+                    mensaje = $"Se ha actualizado {i} registros";
+                }
+                catch (Exception ex)
+                { mensaje = ex.Message; }
+                finally { cn.Close(); }
+            }
+            return mensaje;
         }
     }
 }
