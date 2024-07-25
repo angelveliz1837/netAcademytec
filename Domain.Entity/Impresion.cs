@@ -8,7 +8,7 @@ namespace Domain.Entity
 {
     public class Impresion
     {
-        public int idimpresion { get; set; }
-        public string descripcion { get; set; }
+        public int      idimpresion   { get; set; }
+        public string   descripcion   { get; set; }
     }
 }

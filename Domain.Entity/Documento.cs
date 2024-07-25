@@ -8,7 +8,7 @@ namespace Domain.Entity
 {
     public class Documento
     {
-        public int iddocumento { get; set; }
-        public string nombredocumento { get; set; }
+        public int      iddocumento       { get; set; }
+        public string   nombredocumento   { get; set; }
     }
 }

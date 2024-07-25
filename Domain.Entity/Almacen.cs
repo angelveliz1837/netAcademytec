@@ -8,10 +8,10 @@ namespace Domain.Entity
 {
     public class Almacen
     {
-        public int idalmacen { get; set; }
-        public int idlibro { get; set; }
-        public int cantidad { get; set; }
-        public int idempleado { get; set; }
+        public int idalmacen    { get; set; }
+        public int idlibro      { get; set; }
+        public int cantidad     { get; set; }
+        public int idempleado   { get; set; }
 
     }
 }

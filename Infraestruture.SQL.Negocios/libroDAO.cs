@@ -1,5 +1,6 @@
 ﻿using Domain.Entity;
 using Domain.Repository;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -141,6 +142,23 @@ namespace Infraestruture.SQL.Negocios
                 finally { cn.Close(); }
             }
             return mensaje;
+        }
+        int autogenerado()
+        {
+            //ejecute el procedure y retorna el nventa
+            int n = 0;
+            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("usp_idnotaventalibro", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                n = (int)cmd.Parameters["@id"].Value;
+                cn.Close();
+            }
+            return n;
         }
     }
 }

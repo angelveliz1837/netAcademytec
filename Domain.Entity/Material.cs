@@ -8,10 +8,10 @@ namespace Domain.Entity
 {
     public class Material
     {
-        public int idmaterial { get; set; }
-        public string nombrematerial { get; set; }
-        public decimal preciomaterial { get; set; }
-        public int idrecibo { get; set; }
-        public string numerorecibo { get; set; }
+        public int      idmaterial       { get; set; }
+        public string   nombrematerial   { get; set; }
+        public decimal  preciomaterial   { get; set; }
+        public int      idrecibo         { get; set; }
+        public string   numerorecibo     { get; set; }
     }
 }

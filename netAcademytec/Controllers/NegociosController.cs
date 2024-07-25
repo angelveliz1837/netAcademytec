@@ -5,28 +5,32 @@ using System.Web;
 using System.Web.Mvc;
 using Infraestruture.SQL.Negocios;
 using Domain.Entity;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using Microsoft.Win32;
 
 namespace netAcademytec.Controllers
 {
     public class NegociosController : Controller
     {
-        almacenDAO _almacen = new almacenDAO();
-        areaDAO _area = new areaDAO();
-        autorDAO _autor = new autorDAO();
-        clienteDAO _cliente = new clienteDAO();
-        detalle_facturaDAO _detalle_factura = new detalle_facturaDAO();
-        detalle_listaDAO _detalle_lista = new detalle_listaDAO();
-        documentoDAO _documento = new documentoDAO();
-        empleadoDAO _empleado = new empleadoDAO();
-        empresaDAO _empresa = new empresaDAO();
-        facturaDAO _factura = new facturaDAO();
-        impresionDAO _impresion = new impresionDAO();
-        libroDAO _libro = new libroDAO();
-        listaDAO _lista = new listaDAO();
-        materialDAO _material = new materialDAO();
-        programaDAO _programa = new programaDAO();
-        reciboDAO _recibo = new reciboDAO();
-        transporteDAO _transporte = new transporteDAO();
+        almacenDAO          _almacen            = new almacenDAO();
+        areaDAO             _area               = new areaDAO();
+        autorDAO            _autor              = new autorDAO();
+        clienteDAO          _cliente            = new clienteDAO();
+        detalle_facturaDAO  _detalle_factura    = new detalle_facturaDAO();
+        detalle_listaDAO    _detalle_lista      = new detalle_listaDAO();
+        documentoDAO        _documento          = new documentoDAO();
+        empleadoDAO         _empleado           = new empleadoDAO();
+        empresaDAO          _empresa            = new empresaDAO();
+        facturaDAO          _factura            = new facturaDAO();
+        impresionDAO        _impresion          = new impresionDAO();
+        libroDAO            _libro              = new libroDAO();
+        listaDAO            _lista              = new listaDAO();
+        materialDAO         _material           = new materialDAO();
+        programaDAO         _programa           = new programaDAO();
+        reciboDAO           _recibo             = new reciboDAO();
+        transporteDAO       _transporte         = new transporteDAO();
 
         public ActionResult Index()
         {
@@ -653,6 +657,126 @@ namespace netAcademytec.Controllers
             //eliminar por su id y redirecionar al ListadoMP (no habra vista)
             string mensaje = _factura.delete(id == null ? 0 : id.Value);
             return RedirectToAction("ListadoFactura");
+        }
+        Libro Buscar(int id)
+        {
+            return _libro.search(id);
+        }
+        int autogenerado()
+        {
+            //ejecute el procedure y retorna el nventa
+            int n = 0;
+            using (SqlConnection cn = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("usp_idnotaventa", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                n = (int)cmd.Parameters["@id"].Value;
+                cn.Close();
+            }
+            return n;
+        }
+        public ActionResult Portal()
+        {
+            //este action inicializa una Sesion siempre que este vacio
+            if (Session["canasta"] == null)
+                Session["canasta"] = new List<RegistroFactura>();
+
+            //mostrar los productos en la vista
+            return View(ListadoFactura());
+        }
+        public ActionResult Seleccionar(int? id = null)
+        {
+            //buscar el producto por id, donde evalua si id es null, se le asigna 0 sino su valor
+            Libro reg = Buscar(id == null ? 0 : id.Value);
+
+            if (reg == null)
+                return RedirectToAction("Portal");
+            else
+                return View(reg);
+        }
+        [HttpPost]
+        public ActionResult Seleccionar(int codigo, int cantidad)
+        {
+            string mensaje = "";
+
+            //convertir el Session canasta en una lista de Registro
+            List<RegistroFactura> temporal = (List<RegistroFactura>)Session["canasta"];
+
+            //busqueda: para no repetir el mismo producto en canasta buscar por su codigo
+            RegistroFactura item = temporal.FirstOrDefault(x => x.idlibro == codigo);
+
+            //si item es null, significa que es nuevo Registro
+            if (item == null)
+            {
+                //recuperar el producto
+                Libro reg = Buscar(codigo); //buscar
+
+                //agregar al temporal un nuevo Registro del Producto Seleccionado
+                temporal.Add(new RegistroFactura()
+                {
+                    idlibro = reg.idlibro,
+                    nombrelibro = reg.nombrelibro,
+                    preciolibro = reg.preciolibro,
+                    cantidad = cantidad,
+                });
+                mensaje = $"El producto {reg.nombrelibro} se ha agregado a la canasta";
+            }
+            else
+            {
+                //actualizar la cantidad de item
+                item.cantidad += cantidad;
+                mensaje = $"El producto {item.nombrelibro} ha incrementado su cantidad en {item.cantidad} unidades";
+            }
+
+            //almacenar temporal al Session
+            Session["canasta"] = temporal;
+
+            ViewBag.mensaje = mensaje;
+            ViewBag.btn = true;
+            return View(Buscar(codigo)); //envio el producto a traves de su metodo Buscar
+        }
+        public ActionResult Canasta()
+        {
+            if (Session["canasta"] == null)
+                return RedirectToAction("Portal");
+
+            //enviar la lista del Session Canasta casteando a una lista de Registro
+            return View((List<RegistroFactura>)Session["canasta"]);
+        }
+        public ActionResult Actualizar(int codigo, int cantidad)
+        {
+            //convertir el Session en una lista
+            List<RegistroFactura> temporal = (List<RegistroFactura>)Session["canasta"];
+
+            //buscar por codigo
+            RegistroFactura item = temporal.FirstOrDefault(x => x.idlibro == codigo);
+
+            //actualizar la cantidad
+            item.cantidad = cantidad;
+
+            //actualizar el Session
+            Session["canasta"] = temporal;
+            return RedirectToAction("Canasta");
+        }
+        public ActionResult Delete(int id)
+        {
+            //convertir el Session en una lista
+            List<RegistroFactura> temporal = (List<RegistroFactura>)Session["canasta"];
+
+            //buscar por codigo
+            RegistroFactura item = temporal.FirstOrDefault(x => x.idlibro == id);
+
+            //eliminar item
+            temporal.Remove(item);
+
+            //actualizar el Session
+            Session["canasta"] = temporal;
+            return RedirectToAction("Canasta");
         }
         public ActionResult ListadoImpresion()
         {

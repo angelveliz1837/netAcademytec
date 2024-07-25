@@ -8,9 +8,9 @@ namespace Domain.Entity
 {
     public class Programa
     {
-        public int idprograma { get; set; }
-        public string titulo { get; set; }
-        public string descripcion { get; set; }
-        public int idlibro { get; set; }
+        public int      idprograma    { get; set; }
+        public string   titulo        { get; set; }
+        public string   descripcion   { get; set; }
+        public int      idlibro       { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Domain.Entity
 {
     public class Recibo
     {
-        public int idrecibo { get; set; }
-        public string nombrerecibo { get; set; }
+        public int      idrecibo      { get; set; }
+        public string   nombrerecibo  { get; set; }
     }
 }

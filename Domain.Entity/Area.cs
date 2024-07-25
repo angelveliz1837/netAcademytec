@@ -8,7 +8,7 @@ namespace Domain.Entity
 {
     public class Area
     {
-        public int idarea { get; set; }
-        public string nombrearea { get; set; }
+        public int      idarea        { get; set; }
+        public string   nombrearea    { get; set; }
     }
 }
