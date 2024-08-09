@@ -47,7 +47,7 @@ namespace Infraestruture.SQL.Negocios
             using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from tb_libro", cn);
+                SqlCommand cmd = new SqlCommand("usp_libro", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -142,23 +142,6 @@ namespace Infraestruture.SQL.Negocios
                 finally { cn.Close(); }
             }
             return mensaje;
-        }
-        int autogenerado()
-        {
-            //ejecute el procedure y retorna el nventa
-            int n = 0;
-            using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
-            {
-                cn.Open();
-                SqlCommand cmd = new SqlCommand("usp_idnotaventalibro", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
-
-                cmd.ExecuteNonQuery();
-                n = (int)cmd.Parameters["@id"].Value;
-                cn.Close();
-            }
-            return n;
         }
     }
 }

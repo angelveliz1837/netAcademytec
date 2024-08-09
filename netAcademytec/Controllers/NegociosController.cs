@@ -286,6 +286,7 @@ namespace netAcademytec.Controllers
             string mensaje = _cliente.delete(id == null ? 0 : id.Value);
             return RedirectToAction("ListadoCliente");
         }
+
         public ActionResult ListadoDetalle_Factura()
         {
             return View(_detalle_factura.getAll());
@@ -658,9 +659,40 @@ namespace netAcademytec.Controllers
             string mensaje = _factura.delete(id == null ? 0 : id.Value);
             return RedirectToAction("ListadoFactura");
         }
+        IEnumerable<Libro> listado()
+        {
+            List<Libro> temporal = new List<Libro>();
+            using (SqlConnection cn = new SqlConnection(
+                    ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("usp_libro_tienda", cn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Libro reg = new Libro()
+                    {
+                        idlibro = dr.GetInt32(0),
+                        nombrelibro = dr.GetString(1),
+                        descripcionlibro = dr.GetString(2),
+                        preciolibro = dr.GetDecimal(3),
+                        stock = dr.GetInt32(4),
+                        paginas = dr.GetInt32(5),
+                        idarea = dr.GetInt32(6),
+                        idimpresion = dr.GetInt32(7),
+                        idautor = dr.GetInt32(8),
+                        idempleado = dr.GetInt32(9),
+                    };
+                    temporal.Add(reg);
+                }
+                dr.Close();
+            }
+            return temporal;
+        }
         Libro Buscar(int id)
         {
-            return _libro.search(id);
+            
+            return listado().FirstOrDefault(x => x.idlibro == id);
         }
         int autogenerado()
         {
@@ -687,7 +719,7 @@ namespace netAcademytec.Controllers
                 Session["canasta"] = new List<RegistroFactura>();
 
             //mostrar los productos en la vista
-            return View(ListadoFactura());
+            return View(listado());
         }
         public ActionResult Seleccionar(int? id = null)
         {
@@ -721,8 +753,14 @@ namespace netAcademytec.Controllers
                 {
                     idlibro = reg.idlibro,
                     nombrelibro = reg.nombrelibro,
+                    descripcionlibro = reg.descripcionlibro,
                     preciolibro = reg.preciolibro,
                     cantidad = cantidad,
+                    paginas = reg.paginas,
+                    idarea = reg.idarea,
+                    idimpresion = reg.idimpresion,
+                    idautor = reg.idautor,
+                    idempleado = reg.idempleado
                 });
                 mensaje = $"El producto {reg.nombrelibro} se ha agregado a la canasta";
             }
@@ -777,6 +815,68 @@ namespace netAcademytec.Controllers
             //actualizar el Session
             Session["canasta"] = temporal;
             return RedirectToAction("Canasta");
+        }
+        public ActionResult Registrar()
+        {
+            //si esta vacio ir al Portal
+            if (Session["canasta"] == null)
+                return RedirectToAction("Portal");
+
+            //sino enviar a la vista una instancia de cliente
+            return View(new Cliente());
+        }
+        [HttpPost]
+        public ActionResult Registrar(Cliente reg)
+        {
+            string mensaje = "";
+            bool proceso;
+            int nvta = autogenerado();
+            using (SqlConnection cn = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                cn.Open();
+                SqlTransaction t = cn.BeginTransaction(IsolationLevel.Serializable);
+                try
+                {
+                    //insertar tb_notaventa
+                    SqlCommand cmd = new SqlCommand(
+                        "insert tb_notaventa(idnvta,idcliente) Values(@id, @idcliente)", cn, t);
+                    cmd.Parameters.AddWithValue("@id", nvta);
+                    cmd.Parameters.AddWithValue("@idcliente", reg.idcliente);
+                    cmd.ExecuteNonQuery();
+
+                    //insertar tb_notaventa_detalle
+                    IEnumerable<RegistroFactura> temporal = (IEnumerable<RegistroFactura>)Session["canasta"];
+                    foreach (var item in temporal)
+                    {
+                        cmd = new SqlCommand("Insert tb_notaventa_detalle Values(@id,@idlibro,@preciolibro,@cantidad)", cn, t);
+                        cmd.Parameters.AddWithValue("@id", nvta);
+                        cmd.Parameters.AddWithValue("@idlibro", item.idlibro);
+                        cmd.Parameters.AddWithValue("@preciolibro", item.preciolibro);
+                        cmd.Parameters.AddWithValue("@cantidad", item.cantidad);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    t.Commit(); //si esta ok los procesos
+                    mensaje = $"Se ha registrado el pedido {nvta}";
+                    proceso = true;
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                    proceso = false;
+                    t.Rollback();
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            ViewBag.mensaje = mensaje;
+            ViewBag.fin = proceso;
+            if (proceso == true) Session.Abandon(); //finalizando la session si proceso es true, termino ok
+
+            return View(reg);
         }
         public ActionResult ListadoImpresion()
         {

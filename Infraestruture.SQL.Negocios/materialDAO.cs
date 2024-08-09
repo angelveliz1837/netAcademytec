@@ -46,7 +46,7 @@ namespace Infraestruture.SQL.Negocios
             using (SqlConnection cn = new SqlConnection("server=DESKTOP-AM5J2P7; database=Academytec; uid=sa; pwd=123456"))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from tb_material", cn);
+                SqlCommand cmd = new SqlCommand("usp_material", cn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
