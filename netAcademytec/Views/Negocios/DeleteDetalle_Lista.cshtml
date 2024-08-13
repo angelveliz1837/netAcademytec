@@ -2,63 +2,66 @@
 
 @{
     ViewBag.Title = "DeleteDetalle_Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DeleteDetalle_Lista</h2>
 
-<h2>DeleteDetalle_Lista</h2>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Detalle_Lista</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.iddetallelista)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Detalle_Lista</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.iddetallelista)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iddetallelista)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.iddetallelista)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idlista)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idlista)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idlista)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idlista)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idmaterial)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idmaterial)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idmaterial)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idmaterial)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.preciocosto)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.preciocosto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.preciocosto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.preciocosto)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
-    @Html.ActionLink("Retornar", "ListadoDetalle_Lista")
-</div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Retornar", "ListadoDetalle_Lista")
+            </div>
+        }
+    </div>
 </div>

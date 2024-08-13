@@ -2,49 +2,51 @@
 
 @{
     ViewBag.Title = "DetailsAlmacen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DetailsAlmacen</h2>
 
-<h2>DetailsAlmacen</h2>
+    <div>
+        <h4>Almacen</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idalmacen)
+            </dt>
 
-<div>
-    <h4>Almacen</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idalmacen)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idalmacen)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idalmacen)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idlibro)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idlibro)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idlibro)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idlibro)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idempleado)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idempleado)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idalmacen }) |
+        @Html.ActionLink("Retornar", "ListadoAlmacen")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idalmacen }) |
-    @Html.ActionLink("Retornar", "ListadoAlmacen")
-</p>

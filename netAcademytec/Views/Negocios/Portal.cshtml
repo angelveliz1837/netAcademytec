@@ -11,88 +11,90 @@
         border-radius: 10px;
     }
 </style>
+<div class="row">
+    <h2>Portal</h2>
 
-<h2>Portal</h2>
+    <p>
+        @Html.ActionLink("Ir a la canasta", "Canasta", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idlibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrelibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionlibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preciolibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paginas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idimpresion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </th>
+            <th></th><!--visualizamos la imagen del producto-->
+            <th></th><!--el link para seleccionar el producto-->
+        </tr>
 
-<p>
-    @Html.ActionLink("Ir a la canasta", "Canasta", null, new { @class = "btn btn-success" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idlibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombrelibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcionlibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.preciolibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.paginas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idarea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idimpresion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </th>
-        <th></th><!--visualizamos la imagen del producto-->
-        <th></th><!--el link para seleccionar el producto-->
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idlibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombrelibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionlibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preciolibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.paginas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idarea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idimpresion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempleado)
+                </td>
+                <td>
+                    <!--convertir la ruta virtual ~/imagenes/codigo.jpg a ruta fisica-->
+                    <img src="@Url.Content($"~/imagenes/{item.idlibro}.jpg")" />
+                </td>
+                <td>
+                    @Html.ActionLink("Seleccionar", "Seleccionar", new { id = item.idlibro }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idlibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombrelibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcionlibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.preciolibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.paginas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idarea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idimpresion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempleado)
-        </td>
-        <td>
-            <!--convertir la ruta virtual ~/imagenes/codigo.jpg a ruta fisica-->
-            <img src="@Url.Content($"~/imagenes/{item.idlibro}.jpg")" />
-        </td>
-        <td>
-            @Html.ActionLink("Seleccionar", "Seleccionar", new { id = item.idlibro }, new { @class = "btn btn-primary" })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

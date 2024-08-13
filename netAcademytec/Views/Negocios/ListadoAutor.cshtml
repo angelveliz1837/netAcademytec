@@ -2,80 +2,83 @@
 
 @{
     ViewBag.Title = "ListadoAutor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoAutor</h2>
 
-<h2>ListadoAutor</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateAutor")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iddocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numerodocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidopaternoautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidomaternoautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateAutor")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iddocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numerodocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellidopaternoautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellidomaternoautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.foto)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iddocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numerodocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidopaternoautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidomaternoautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.foto)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditAutor", new { id = item.idautor }) |
+                    @Html.ActionLink("Details", "DetailsAutor", new { id = item.idautor }) |
+                    @Html.ActionLink("Delete", "DeleteAutor", new { id = item.idautor })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iddocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numerodocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidopaternoautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidomaternoautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.foto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditAutor", new { id = item.idautor }) |
-            @Html.ActionLink("Details", "DetailsAutor", new { id = item.idautor }) |
-            @Html.ActionLink("Delete", "DeleteAutor", new { id = item.idautor })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

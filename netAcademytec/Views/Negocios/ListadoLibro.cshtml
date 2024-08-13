@@ -2,86 +2,89 @@
 
 @{
     ViewBag.Title = "ListadoLibro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoLibro</h2>
 
-<h2>ListadoLibro</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateLibro")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idlibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrelibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionlibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preciolibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paginas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idimpresion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idautor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateLibro")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idlibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombrelibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcionlibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.preciolibro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.paginas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idarea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idimpresion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idautor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idlibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombrelibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionlibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preciolibro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.paginas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idarea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idimpresion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idautor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempleado)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditLibro", new { id = item.idlibro }) |
+                    @Html.ActionLink("Details", "DetailsLibro", new { id = item.idlibro }) |
+                    @Html.ActionLink("Delete", "DeleteLibro", new { id = item.idlibro })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idlibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombrelibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcionlibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.preciolibro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.paginas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idarea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idimpresion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idautor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempleado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditLibro", new { id = item.idlibro }) |
-            @Html.ActionLink("Details", "DetailsLibro", new { id = item.idlibro }) |
-            @Html.ActionLink("Delete", "DeleteLibro", new { id = item.idlibro })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

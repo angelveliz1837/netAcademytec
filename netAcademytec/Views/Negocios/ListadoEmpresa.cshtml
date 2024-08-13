@@ -2,74 +2,77 @@
 
 @{
     ViewBag.Title = "ListadoEmpresa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoEmpresa</h2>
 
-<h2>ListadoEmpresa</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateEmpresa")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idempresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ruc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.web)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.logo)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateEmpresa")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idempresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ruc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.web)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.logo)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ruc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.web)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.logo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditEmpresa", new { id = item.idempresa }) |
+                    @Html.ActionLink("Details", "DetailsEmpresa", new { id = item.idempresa }) |
+                    @Html.ActionLink("Delete", "DeleteEmpresa", new { id = item.idempresa })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ruc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.web)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.logo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditEmpresa", new { id = item.idempresa }) |
-            @Html.ActionLink("Details", "DetailsEmpresa", new { id = item.idempresa }) |
-            @Html.ActionLink("Delete", "DeleteEmpresa", new { id = item.idempresa })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

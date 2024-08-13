@@ -2,89 +2,91 @@
 
 @{
     ViewBag.Title = "DetailsCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DetailsCliente</h2>
 
-<h2>DetailsCliente</h2>
+    <div>
+        <h4>Cliente</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idcliente)
+            </dt>
 
-<div>
-    <h4>Cliente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idcliente)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idcliente)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idcliente)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.iddocumento)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.iddocumento)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iddocumento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.iddocumento)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.numerodocumento)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.numerodocumento)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.numerodocumento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.numerodocumento)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombrecliente)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombrecliente)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombrecliente)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombrecliente)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.apellidopaternocliente)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.apellidopaternocliente)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.apellidopaternocliente)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.apellidopaternocliente)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.apellidomaternocliente)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.apellidomaternocliente)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.apellidomaternocliente)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.apellidomaternocliente)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.correo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.correo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.correo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.correo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefono)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.foto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idcliente }) |
+        @Html.ActionLink("Retornar", "ListadoCliente")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idcliente }) |
-    @Html.ActionLink("Retornar", "ListadoCliente")
-</p>

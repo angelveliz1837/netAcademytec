@@ -2,38 +2,41 @@
 
 @{
     ViewBag.Title = "ListadoDocumento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoDocumento</h2>
 
-<h2>ListadoDocumento</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateDocumento")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.iddocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombredocumento)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateDocumento")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.iddocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombredocumento)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iddocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombredocumento)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditDocumento", new { id = item.iddocumento }) |
+                    @Html.ActionLink("Details", "DetailsDocumento", new { id = item.iddocumento }) |
+                    @Html.ActionLink("Delete", "DeleteDocumento", new { id = item.iddocumento })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.iddocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombredocumento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditDocumento", new { id = item.iddocumento }) |
-            @Html.ActionLink("Details", "DetailsDocumento", new { id = item.iddocumento }) |
-            @Html.ActionLink("Delete", "DeleteDocumento", new { id = item.iddocumento })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

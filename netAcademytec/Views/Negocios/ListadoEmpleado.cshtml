@@ -2,86 +2,89 @@
 
 @{
     ViewBag.Title = "ListadoEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoEmpleado</h2>
 
-<h2>ListadoEmpleado</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateEmpleado")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iddocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numerodocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreempleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidopaternoempleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidomaternoempleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateEmpleado")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.iddocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numerodocumento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreempleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellidopaternoempleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellidomaternoempleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cargo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.foto)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iddocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numerodocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreempleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidopaternoempleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellidomaternoempleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.foto)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditEmpleado", new { id = item.idempleado }) |
+                    @Html.ActionLink("Details", "DetailsEmpleado", new { id = item.idempleado }) |
+                    @Html.ActionLink("Delete", "DeleteEmpleado", new { id = item.idempleado })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iddocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numerodocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreempleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidopaternoempleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellidomaternoempleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cargo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.foto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditEmpleado", new { id = item.idempleado }) |
-            @Html.ActionLink("Details", "DetailsEmpleado", new { id = item.idempleado }) |
-            @Html.ActionLink("Delete", "DeleteEmpleado", new { id = item.idempleado })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

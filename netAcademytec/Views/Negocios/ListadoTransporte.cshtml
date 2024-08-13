@@ -2,56 +2,59 @@
 
 @{
     ViewBag.Title = "ListadoTransporte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoTransporte</h2>
 
-<h2>ListadoTransporte</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateTransporte")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idtransporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccionpartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccionllegada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idalmacen)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateTransporte")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idtransporte)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccionpartida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccionllegada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idalmacen)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idtransporte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccionpartida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccionllegada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idalmacen)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTransporte", new { id = item.idtransporte }) |
+                    @Html.ActionLink("Details", "DetailsTransporte", new { id = item.idtransporte }) |
+                    @Html.ActionLink("Delete", "DeleteTransporte", new { id = item.idtransporte })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idtransporte)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccionpartida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccionllegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idalmacen)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditTransporte", new { id = item.idtransporte }) |
-            @Html.ActionLink("Details", "DetailsTransporte", new { id = item.idtransporte }) |
-            @Html.ActionLink("Delete", "DeleteTransporte", new { id = item.idtransporte })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

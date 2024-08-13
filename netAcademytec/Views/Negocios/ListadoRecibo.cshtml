@@ -2,38 +2,41 @@
 
 @{
     ViewBag.Title = "ListadoRecibo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoRecibo</h2>
 
-<h2>ListadoRecibo</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateRecibo")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idrecibo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrerecibo)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateRecibo")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idrecibo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombrerecibo)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idrecibo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombrerecibo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditRecibo", new { id = item.idrecibo }) |
+                    @Html.ActionLink("Details", "DetailsRecibo", new { id = item.idrecibo }) |
+                    @Html.ActionLink("Delete", "DeleteRecibo", new { id = item.idrecibo })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idrecibo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombrerecibo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditRecibo", new { id = item.idrecibo }) |
-            @Html.ActionLink("Details", "DetailsRecibo", new { id = item.idrecibo }) |
-            @Html.ActionLink("Delete", "DeleteRecibo", new { id = item.idrecibo })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

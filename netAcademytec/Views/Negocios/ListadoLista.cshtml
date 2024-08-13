@@ -2,50 +2,53 @@
 
 @{
     ViewBag.Title = "ListadoLista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoLista</h2>
 
-<h2>ListadoLista</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateLista")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idlista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechalista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idempresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idempleado)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateLista")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idlista)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechalista)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idempresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idempleado)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idlista)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechalista)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idempleado)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditLista", new { id = item.idlista }) |
+                    @Html.ActionLink("Details", "DetailsLista", new { id = item.idlista }) |
+                    @Html.ActionLink("Delete", "DeleteLista", new { id = item.idlista })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idlista)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechalista)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idempleado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditLista", new { id = item.idlista }) |
-            @Html.ActionLink("Details", "DetailsLista", new { id = item.idlista }) |
-            @Html.ActionLink("Delete", "DeleteLista", new { id = item.idlista })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

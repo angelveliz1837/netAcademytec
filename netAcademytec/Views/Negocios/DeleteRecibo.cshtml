@@ -2,39 +2,42 @@
 
 @{
     ViewBag.Title = "DeleteRecibo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DeleteRecibo</h2>
 
-<h2>DeleteRecibo</h2>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Recibo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idrecibo)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Recibo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idrecibo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idrecibo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idrecibo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombrerecibo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombrerecibo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombrerecibo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombrerecibo)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
-    @Html.ActionLink("Retornar", "ListadoRecibo")
-</div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Retornar", "ListadoRecibo")
+            </div>
+        }
+    </div>
 </div>

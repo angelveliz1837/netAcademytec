@@ -2,33 +2,35 @@
 
 @{
     ViewBag.Title = "DetailsArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DetailsArea</h2>
 
-<h2>DetailsArea</h2>
+    <div>
+        <h4>Area</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idarea)
+            </dt>
 
-<div>
-    <h4>Area</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idarea)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idarea)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idarea)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombrearea)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombrearea)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombrearea)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombrearea)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idarea }) |
+        @Html.ActionLink("Retornar", "ListadoArea")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idarea }) |
-    @Html.ActionLink("Retornar", "ListadoArea")
-</p>

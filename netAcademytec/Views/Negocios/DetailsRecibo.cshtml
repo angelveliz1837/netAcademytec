@@ -2,33 +2,35 @@
 
 @{
     ViewBag.Title = "DetailsRecibo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DetailsRecibo</h2>
 
-<h2>DetailsRecibo</h2>
+    <div>
+        <h4>Recibo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idrecibo)
+            </dt>
 
-<div>
-    <h4>Recibo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idrecibo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idrecibo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idrecibo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombrerecibo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombrerecibo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombrerecibo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombrerecibo)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idrecibo }) |
+        @Html.ActionLink("Retornar", "ListadoRecibo")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idrecibo }) |
-    @Html.ActionLink("Retornar", "ListadoRecibo")
-</p>

@@ -2,38 +2,41 @@
 
 @{
     ViewBag.Title = "ListadoArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoArea</h2>
 
-<h2>ListadoArea</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateArea")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrearea)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateArea")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idarea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombrearea)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idarea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombrearea)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditArea", new { id = item.idarea }) |
+                    @Html.ActionLink("Details", "DetailsArea", new { id = item.idarea }) |
+                    @Html.ActionLink("Delete", "DeleteArea", new { id = item.idarea })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idarea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombrearea)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditArea", new { id = item.idarea }) |
-            @Html.ActionLink("Details", "DetailsArea", new { id = item.idarea }) |
-            @Html.ActionLink("Delete", "DeleteArea", new { id = item.idarea })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

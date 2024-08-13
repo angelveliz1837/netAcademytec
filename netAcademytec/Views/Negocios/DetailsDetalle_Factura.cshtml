@@ -2,81 +2,83 @@
 
 @{
     ViewBag.Title = "DetailsDetalle_Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DetailsDetalle_Factura</h2>
 
-<h2>DetailsDetalle_Factura</h2>
+    <div>
+        <h4>Detalle_Factura</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.iddetallefactura)
+            </dt>
 
-<div>
-    <h4>Detalle_Factura</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.iddetallefactura)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iddetallefactura)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.iddetallefactura)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idfactura)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idfactura)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idfactura)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idfactura)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idprograma)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idprograma)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idprograma)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idprograma)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idlibro)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idlibro)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idlibro)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idlibro)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idtransporte)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idtransporte)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idtransporte)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idtransporte)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.importe)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.importe)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.importe)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.importe)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.precioventa)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precioventa)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.precioventa)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.precioventa)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.iddetallefactura }) |
+        @Html.ActionLink("Retornar", "ListadoDetalle_Factura")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.iddetallefactura }) |
-    @Html.ActionLink("Retornar", "ListadoDetalle_Factura")
-</p>

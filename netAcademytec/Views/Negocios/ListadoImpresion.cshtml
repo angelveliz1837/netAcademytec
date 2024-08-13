@@ -2,38 +2,41 @@
 
 @{
     ViewBag.Title = "ListadoImpresion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>ListadoImpresion</h2>
 
-<h2>ListadoImpresion</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateImpresion")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idimpresion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "CreateImpresion")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idimpresion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idimpresion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditImpresion", new { id = item.idimpresion }) |
+                    @Html.ActionLink("Details", "DetailsImpresion", new { id = item.idimpresion }) |
+                    @Html.ActionLink("Delete", "DeleteImpresion", new { id = item.idimpresion })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idimpresion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditImpresion", new { id = item.idimpresion }) |
-            @Html.ActionLink("Details", "DetailsImpresion", new { id = item.idimpresion }) |
-            @Html.ActionLink("Delete", "DeleteImpresion", new { id = item.idimpresion })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</div>

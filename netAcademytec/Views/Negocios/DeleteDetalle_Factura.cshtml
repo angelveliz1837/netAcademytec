@@ -2,87 +2,90 @@
 
 @{
     ViewBag.Title = "DeleteDetalle_Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <h2>DeleteDetalle_Factura</h2>
 
-<h2>DeleteDetalle_Factura</h2>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Detalle_Factura</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.iddetallefactura)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Detalle_Factura</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.iddetallefactura)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iddetallefactura)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.iddetallefactura)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idfactura)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idfactura)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idfactura)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idfactura)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idprograma)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idprograma)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idprograma)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idprograma)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idlibro)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idlibro)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idlibro)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idlibro)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.cantidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idtransporte)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idtransporte)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idtransporte)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.idtransporte)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.importe)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.importe)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.importe)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.importe)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.precioventa)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precioventa)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.precioventa)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.precioventa)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
-    @Html.ActionLink("Retornar", "ListadoDetalle_Factura")
-</div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Retornar", "ListadoDetalle_Factura")
+            </div>
+        }
+    </div>
 </div>
