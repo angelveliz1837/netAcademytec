@@ -5,38 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>ListadoRecibo</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoRecibo</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Create New", "CreateRecibo")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idrecibo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombrerecibo)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreateRecibo")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idrecibo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nombrerecibo)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idrecibo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombrerecibo)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditRecibo", new { id = item.idrecibo }) |
+                                    @Html.ActionLink("Details", "DetailsRecibo", new { id = item.idrecibo }) |
+                                    @Html.ActionLink("Delete", "DeleteRecibo", new { id = item.idrecibo })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idrecibo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombrerecibo)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditRecibo", new { id = item.idrecibo }) |
-                    @Html.ActionLink("Details", "DetailsRecibo", new { id = item.idrecibo }) |
-                    @Html.ActionLink("Delete", "DeleteRecibo", new { id = item.idrecibo })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -5,50 +5,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>ListadoPrograma</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoPrograma</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Create New", "CreatePrograma")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idprograma)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.titulo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.descripcion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idlibro)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreatePrograma")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idprograma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idprograma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.titulo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idlibro)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditPrograma", new { id = item.idprograma }) |
+                                    @Html.ActionLink("Details", "DetailsPrograma", new { id = item.idprograma }) |
+                                    @Html.ActionLink("Delete", "DeletePrograma", new { id = item.idprograma })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idprograma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.titulo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idlibro)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditPrograma", new { id = item.idprograma }) |
-                    @Html.ActionLink("Details", "DetailsPrograma", new { id = item.idprograma }) |
-                    @Html.ActionLink("Delete", "DeletePrograma", new { id = item.idprograma })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

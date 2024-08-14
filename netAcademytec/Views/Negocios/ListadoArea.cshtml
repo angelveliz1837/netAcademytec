@@ -5,38 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>ListadoArea</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoArea</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Create New", "CreateArea")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idarea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombrearea)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreateArea")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idarea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nombrearea)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idarea)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombrearea)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditArea", new { id = item.idarea }) |
+                                    @Html.ActionLink("Details", "DetailsArea", new { id = item.idarea }) |
+                                    @Html.ActionLink("Delete", "DeleteArea", new { id = item.idarea })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idarea)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombrearea)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditArea", new { id = item.idarea }) |
-                    @Html.ActionLink("Details", "DetailsArea", new { id = item.idarea }) |
-                    @Html.ActionLink("Delete", "DeleteArea", new { id = item.idarea })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

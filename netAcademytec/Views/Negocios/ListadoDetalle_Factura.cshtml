@@ -5,74 +5,89 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>ListadoDetalle_Factura</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoDetalle_Factura</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Create New", "CreateDetalle_Factura")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.iddetallefactura)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idfactura)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idprograma)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idlibro)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cantidad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idtransporte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.importe)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.precioventa)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreateDetalle_Factura")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.iddetallefactura)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idfactura)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idprograma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idtransporte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.importe)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precioventa)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.iddetallefactura)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idfactura)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idprograma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idlibro)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cantidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idtransporte)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.importe)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.precioventa)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditDetalle_Factura", new { id = item.iddetallefactura }) |
+                                    @Html.ActionLink("Details", "DetailsDetalle_Factura", new { id = item.iddetallefactura }) |
+                                    @Html.ActionLink("Delete", "DeleteDetalle_Factura", new { id = item.iddetallefactura })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.iddetallefactura)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idfactura)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idprograma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idlibro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cantidad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idtransporte)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.importe)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.precioventa)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditDetalle_Factura", new { id = item.iddetallefactura }) |
-                    @Html.ActionLink("Details", "DetailsDetalle_Factura", new { id = item.iddetallefactura }) |
-                    @Html.ActionLink("Delete", "DeleteDetalle_Factura", new { id = item.iddetallefactura })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

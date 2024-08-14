@@ -6,50 +6,65 @@
 
 }
 <div class="row">
-    <h2>ListadoAlmacen</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoAlmacen</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Crear", "CreateAlmacen")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idalmacen)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idlibro)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cantidad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idempleado)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreateAlmacen")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idalmacen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idempleado)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idalmacen)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idlibro)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cantidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idempleado)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditAlmacen", new { id = item.idalmacen }) |
+                                    @Html.ActionLink("Details", "DetailsAlmacen", new { id = item.idalmacen }) |
+                                    @Html.ActionLink("Delete", "DeleteAlmacen", new { id = item.idalmacen })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idalmacen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idlibro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cantidad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idempleado)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditAlmacen", new { id = item.idalmacen }) |
-                    @Html.ActionLink("Details", "DetailsAlmacen", new { id = item.idalmacen }) |
-                    @Html.ActionLink("Delete", "DeleteAlmacen", new { id = item.idalmacen })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -5,80 +5,95 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>ListadoCliente</h2>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>ListadoCliente</h2>
+                    <button class="btn btn-primary btn-round ms-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        @Html.ActionLink("Create New", "CreateCliente")
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row"
+                           class="display table table-striped table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idcliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.iddocumento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.numerodocumento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombrecliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.apellidopaternocliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.apellidomaternocliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.correo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.foto)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    <p>
-        @Html.ActionLink("Create New", "CreateCliente")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.idcliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.iddocumento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.numerodocumento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nombrecliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.apellidopaternocliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.apellidomaternocliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.correo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.foto)
-            </th>
-            <th></th>
-        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idcliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.iddocumento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.numerodocumento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombrecliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.apellidopaternocliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.apellidomaternocliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.correo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.foto)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditCliente", new { id = item.idcliente }) |
+                                    @Html.ActionLink("Details", "DetailsCliente", new { id = item.idcliente }) |
+                                    @Html.ActionLink("Delete", "DeleteCliente", new { id = item.idcliente })
+                                </td>
+                            </tr>
+                        }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idcliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.iddocumento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.numerodocumento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombrecliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apellidopaternocliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apellidomaternocliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.correo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.foto)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditCliente", new { id = item.idcliente }) |
-                    @Html.ActionLink("Details", "DetailsCliente", new { id = item.idcliente }) |
-                    @Html.ActionLink("Delete", "DeleteCliente", new { id = item.idcliente })
-                </td>
-            </tr>
-        }
-
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
