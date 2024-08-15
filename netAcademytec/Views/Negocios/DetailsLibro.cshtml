@@ -5,96 +5,115 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>DetailsLibro</h2>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h2 class="fw-bold mb-3">Detalle de Libro</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="form-horizontal">
+                                <div class="card-title">Libro</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12">
+                                        <hr />
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idlibro)
+                                            </dt>
 
-    <div>
-        <h4>Libro</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idlibro)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idlibro)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.nombrelibro)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.nombrelibro)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.nombrelibro)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.nombrelibro)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.descripcionlibro)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.descripcionlibro)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.descripcionlibro)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.descripcionlibro)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.preciolibro)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.preciolibro)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.preciolibro)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.preciolibro)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.stock)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.stock)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.stock)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.stock)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.paginas)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.paginas)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.paginas)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.paginas)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idarea)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idarea)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idarea)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idarea)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idimpresion)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idimpresion)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idimpresion)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idimpresion)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idautor)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idautor)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idautor)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idautor)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idempleado)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idempleado)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idempleado)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idempleado)
-            </dd>
-
-        </dl>
+                                        </dl>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.idlibro }) |
+                                        @Html.ActionLink("Retornar", "ListadoLibro")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idlibro }) |
-        @Html.ActionLink("Retornar", "ListadoLibro")
-    </p>
 </div>

@@ -5,108 +5,127 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>Seleccionar</h2>
-
-    <div>
-        <h4>Libro</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.idlibro)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.nombrelibro)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.nombrelibro)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.descripcionlibro)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.descripcionlibro)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.preciolibro)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.preciolibro)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.stock)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.stock)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.paginas)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.paginas)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.idarea)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.idarea)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.idimpresion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.idimpresion)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.idautor)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.idautor)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.idempleado)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.idempleado)
-            </dd>
-            <!--agregar un formulario donde envies el codigo de producto y la cantidad del pedido-->
-            <div>
-                @using (Html.BeginForm())
-                {
-                    @Html.Hidden("codigo", Model.idlibro)
-                    <div>
-                        <em>Ingrese la cantidad:</em>
-                        @Html.TextBox("cantidad", 1, new { type = "number", min = 1, max = Model.stock })
-                    </div>
-                    <div>
-                        <input type="submit" value="Agregar" class="btn btn-primary" disabled="@ViewBag.btn" />
-                        @Html.ActionLink("Retornar", "Portal", null, new { @class = "btn btn-primary" })
-                    </div>
-                }
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h2 class="fw-bold mb-3">Seleccionar</h2>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="form-horizontal">
+                                <div class="card-title">Libro</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12">
+                                        <hr />
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idlibro)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idlibro)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.nombrelibro)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.nombrelibro)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.descripcionlibro)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.descripcionlibro)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.preciolibro)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.preciolibro)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.stock)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.stock)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.paginas)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.paginas)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idarea)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idarea)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idimpresion)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idimpresion)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idautor)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idautor)
+                                            </dd>
+
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idempleado)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idempleado)
+                                            </dd>
+                                            <!--agregar un formulario donde envies el codigo de producto y la cantidad del pedido-->
+                                            <div>
+                                                @using (Html.BeginForm())
+                                                {
+                                                    @Html.Hidden("codigo", Model.idlibro)
+                                                    <div>
+                                                        <em>Ingrese la cantidad:</em>
+                                                        @Html.TextBox("cantidad", 1, new { type = "number", min = 1, max = Model.stock })
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" value="Agregar" class="btn btn-primary" disabled="@ViewBag.btn" />
+                                                        @Html.ActionLink("Retornar", "Portal", null, new { @class = "btn btn-primary" })
+                                                    </div>
+                                                }
+                                            </div>
+                                    </div>
+                                    <p>
+                                        @ViewBag.mensaje
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @ViewBag.mensaje
-    </p>
 </div>

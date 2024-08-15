@@ -5,48 +5,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>DetailsAlmacen</h2>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h2 class="fw-bold mb-3">Detalle de Almacen</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="form-horizontal">
+                                <div class="card-title">Almacen</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12">
+                                        <hr />
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idalmacen)
+                                            </dt>
 
-    <div>
-        <h4>Almacen</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.idalmacen)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idalmacen)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idalmacen)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idlibro)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idlibro)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idlibro)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idlibro)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.cantidad)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.cantidad)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.cantidad)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idempleado)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idempleado)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idempleado)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idempleado)
-            </dd>
-
-        </dl>
+                                        </dl>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.idalmacen }) |
+                                        @Html.ActionLink("Retornar", "ListadoAlmacen")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idalmacen }) |
-        @Html.ActionLink("Retornar", "ListadoAlmacen")
-    </p>
 </div>

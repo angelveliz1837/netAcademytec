@@ -5,109 +5,121 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>Canasta</h2>
-
-    <p>
-        @Html.ActionLink("Ir al Portal", "Portal", null, new { @class = "btn btn-success" })
-        @Html.ActionLink("Registrar Pedido", "Registrar", null, new { @class = "btn btn-success" })
-    </p>
-    @if (Model.Count() > 0)
-    {
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.idlibro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.nombrelibro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.descripcionlibro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.preciolibro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.paginas)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.idarea)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.idimpresion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.idautor)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.idempleado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.cantidad)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.monto)
-                </th>
-
-            </tr>
-
-            @foreach (var item in Model)
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h2>Canasta</h2>
+                    <p class="ms-auto">
+                        @Html.ActionLink("Ir al Portal", "Portal", null, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Registrar Pedido", "Registrar", null, new { @class = "btn btn-success" })
+                    </p>
+                </div>
+            </div>
+            @if (Model.Count() > 0)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idlibro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nombrelibro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.descripcionlibro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.preciolibro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.paginas)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idarea)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idimpresion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idautor)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idempleado)
-                    </td>
-                    <!--este sector agregamos un formulario para cada registro donde podras
-                        modificar la cantidad o eliminar el registro-->
-                    @using (Html.BeginForm("Actualizar", "Negocios", FormMethod.Post))
-                    {
-                        @Html.Hidden("codigo", item.idlibro)
-                        <td>
-                            @Html.TextBox("cantidad", item.cantidad, new { type = "number", min = 1 })
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.monto)
-                        </td>
-                        <td>
-                            <input type="submit" value="Actualizar" class="btn btn-primary" /> |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.idlibro }, new { @class = "btn btn-danger" })
-                        </td>
-                    }
-                </tr>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="add-row"
+                               class="display table table-striped table-hover">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idlibro)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.nombrelibro)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.descripcionlibro)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.preciolibro)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.paginas)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idarea)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idimpresion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idautor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idempleado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cantidad)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.monto)
+                                </th>
+
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idlibro)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nombrelibro)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.descripcionlibro)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.preciolibro)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.paginas)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idarea)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idimpresion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idautor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idempleado)
+                                    </td>
+                                    <!--este sector agregamos un formulario para cada registro donde podras
+                                    modificar la cantidad o eliminar el registro-->
+                                    @using (Html.BeginForm("Actualizar", "Negocios", FormMethod.Post))
+                                    {
+                                        @Html.Hidden("codigo", item.idlibro)
+                                        <td>
+                                            @Html.TextBox("cantidad", item.cantidad, new { type = "number", min = 1 })
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.monto)
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Actualizar" class="btn btn-primary" /> |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idlibro }, new { @class = "btn btn-danger" })
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                            <!--despues del foreach procedemos a actualizar la columna monto-->
+                            <tr>
+                                <td colspan="5">Monto Total del Pedido:</td>
+                                <td> @Model.Sum(x => x.monto) </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             }
-            <!--despues del foreach procedemos a actualizar la columna monto-->
-            <tr>
-                <td colspan="5">Monto Total del Pedido:</td>
-                <td> @Model.Sum(x => x.monto) </td>
-            </tr>
-        </table>
-    }
-    else
-    {
-        <p>Canasta vacía</p>
-    }
+            else
+            {
+                <p>Canasta vacía</p>
+            }
+        </div>
+    </div>
 </div>

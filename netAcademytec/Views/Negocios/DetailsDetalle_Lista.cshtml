@@ -5,56 +5,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>DetailsDetalle_Lista</h2>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h2 class="fw-bold mb-3">Detalle de Detalle Lista</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="form-horizontal">
+                                <div class="card-title">Detalle_Lista</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12">
+                                        <hr />
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.iddetallelista)
+                                            </dt>
 
-    <div>
-        <h4>Detalle_Lista</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.iddetallelista)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.iddetallelista)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.iddetallelista)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idlista)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idlista)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idlista)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idlista)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idmaterial)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.idmaterial)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idmaterial)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idmaterial)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.cantidad)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.cantidad)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.cantidad)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.preciocosto)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.preciocosto)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.preciocosto)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.preciocosto)
-            </dd>
-
-        </dl>
+                                        </dl>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.iddetallelista }) |
+                                        @Html.ActionLink("Retornar", "ListadoDetalle_Lista")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.iddetallelista }) |
-        @Html.ActionLink("Retornar", "ListadoDetalle_Lista")
-    </p>
 </div>

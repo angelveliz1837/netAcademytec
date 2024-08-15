@@ -5,80 +5,99 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <h2>DetailsEmpresa</h2>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h2 class="fw-bold mb-3">Detalle de Empresa</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="form-horizontal">
+                                <div class="card-title">Empresa</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-12">
+                                        <hr />
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.idempresa)
+                                            </dt>
 
-    <div>
-        <h4>Empresa</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.idempresa)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.idempresa)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.idempresa)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.ruc)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ruc)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.ruc)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.ruc)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.nombre)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.nombre)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.nombre)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.nombre)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.direccion)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.direccion)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.direccion)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.direccion)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.correo)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.correo)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.correo)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.correo)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.telefono)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.telefono)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.telefono)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.telefono)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.web)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.web)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.web)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.web)
-            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.logo)
+                                            </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.logo)
-            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.logo)
+                                            </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.logo)
-            </dd>
-
-        </dl>
+                                        </dl>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", new { id = Model.idempresa }) |
+                                        @Html.ActionLink("Retornar", "ListadoEmpresa")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.idempresa }) |
-        @Html.ActionLink("Retornar", "ListadoEmpresa")
-    </p>
 </div>
